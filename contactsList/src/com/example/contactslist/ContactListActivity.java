@@ -1,8 +1,18 @@
 package com.example.contactslist;
 
+import java.util.List;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 public class ContactListActivity extends Activity {
 
@@ -10,6 +20,26 @@ public class ContactListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_list);
+        
+        String[] groups = {"Web-Ops","Communications","PA","PRs","Finance"};
+        String[] contacts;
+        
+        ListView groupsList = (ListView) findViewById(R.id.groupsListView);
+        ListAdapter groupsAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, groups);
+        groupsList.setAdapter(groupsAdapter);
+        groupsList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				Toast.makeText(getApplicationContext(), "You clicked on a group!", Toast.LENGTH_SHORT).show();
+				
+			}
+        	
+        	
+        });
+        //groupsList.setClickable(true);
     }
 
 
