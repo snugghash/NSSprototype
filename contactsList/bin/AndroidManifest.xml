@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="10"
+        android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
     <application
@@ -16,6 +16,23 @@
         <activity
             android:name="com.example.contactslist.ContactListActivity"
             android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.contactslist.ContactsTabbedListActivity"
+            android:label="@string/title_activity_contacts_tabbed_list"
+            android:parentActivityName="com.example.contactslist.ContactListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.contactslist.ContactListActivity" />
+        </activity>
+        <activity
+            android:name="com.example.contactslist.ContactsListAllActivity"
+            android:label="@string/title_activity_contacts_list_all" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

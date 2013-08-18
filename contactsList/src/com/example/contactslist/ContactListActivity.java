@@ -21,9 +21,10 @@ public class ContactListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_list);
         
+        //Hard coded groups
         String[] groups = {"Web-Ops","Communications","PA","PRs","Finance"};
-        String[] contacts;
         
+        //Adding groups to the list
         ListView groupsList = (ListView) findViewById(R.id.groupsListView);
         ListAdapter groupsAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, groups);
@@ -33,8 +34,13 @@ public class ContactListActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				Toast.makeText(getApplicationContext(), "You clicked on a group!", Toast.LENGTH_SHORT).show();
 				
+				//Toast.makeText(getApplicationContext(), "You clicked on a group!"+Integer.toString(arg2), Toast.LENGTH_SHORT).show();
+				Intent toContactList = new Intent(getApplicationContext(), com.example.contactslist.ContactsTabbedListActivity.class);
+				
+				//Starts the contacts activity with the group as extra detail.
+				toContactList.putExtra("groupNumber", arg2);
+				startActivity(toContactList);
 			}
         	
         	
