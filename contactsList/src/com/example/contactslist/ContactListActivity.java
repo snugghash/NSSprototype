@@ -23,29 +23,28 @@ public class ContactListActivity extends Activity {
         
         //Hard coded groups
         String[] groups = {"Web-Ops","Communications","PA","PRs","Finance"};
+        String[] webops = {"Gowtham V","Deepak V K","Abdeali Kothari","Suhas G"};
         
         //Adding groups to the list
         ListView groupsList = (ListView) findViewById(R.id.groupsListView);
-        ListAdapter groupsAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, groups);
+        ListAdapter groupsAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1, groups);
         groupsList.setAdapter(groupsAdapter);
-        groupsList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				
-				//Toast.makeText(getApplicationContext(), "You clicked on a group!"+Integer.toString(arg2), Toast.LENGTH_SHORT).show();
-				Intent toContactList = new Intent(getApplicationContext(), com.example.contactslist.ContactsTabbedListActivity.class);
-				
-				//Starts the contacts activity with the group as extra detail.
-				toContactList.putExtra("groupNumber", arg2);
-				startActivity(toContactList);
-			}
-        	
-        	
-        });
-        //groupsList.setClickable(true);
+//        groupsList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+//
+//			@Override
+//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+//					long arg3) {
+//				
+//				//Toast.makeText(getApplicationContext(), "You clicked on a group!"+Integer.toString(arg2), Toast.LENGTH_SHORT).show();
+//				Intent toContactList = new Intent(getApplicationContext(), com.example.contactslist.ContactsTabbedListActivity.class);
+//				
+//				//Starts the contacts activity with the group as extra detail.
+//				toContactList.putExtra("groupNumber", arg2);
+//				startActivity(toContactList);
+//			}
+//        	
+//        	
+//        });
     }
 
 
