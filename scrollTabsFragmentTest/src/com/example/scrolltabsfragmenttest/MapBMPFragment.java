@@ -21,55 +21,71 @@ import android.widget.Toast;
 
 public class MapBMPFragment extends Fragment {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * android.support.v4.app.Fragment#onCreateView(android.view.LayoutInflater,
+	 * android.view.ViewGroup, android.os.Bundle)
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+		View view = inflater.inflate(R.layout.iitmphysicalmap2004, container, false);
 
-		/*
-		 * Toast.makeText(inflater.getContext(), "You are in physical maps!",
-		 * Toast.LENGTH_SHORT).show();
-		 * 
-		 * BitmapFactory.Options options = new BitmapFactory.Options();
-		 * options.inJustDecodeBounds = true; Bitmap bitmap =
-		 * BitmapFactory.decodeResource(getResources(), R.drawable.iitmmap2004,
-		 * options); int imageHeight = options.outHeight; int imageWidth =
-		 * options.outWidth; String imageType = options.outMimeType;
-		 * 
-		 * ImageView mImageView = (ImageView)
-		 * this.getActivity().findViewById(R.id.iitmmap2004iv);
-		 * //mImageView.setImageBitmap(bitmap);
-		 * //mImageView.setImageBitmap(decodeSampledBitmapFromResource
-		 * (getResources(), R.drawable.iitmmap2004, 100, 100));
-		 */
+		Toast.makeText(inflater.getContext(), "You are in physical maps!",
+				Toast.LENGTH_SHORT).show();
 
-		File file = new File("file://" + "/sdcard/NSS/", "iitmmap2004.jpg");
-	    FileOutputStream out = null;
-		try {
-			out = new FileOutputStream(file);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.iitmmap2004);
-		bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
-		try {
-			out.flush();
-		
-		out.close();} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inJustDecodeBounds = true;
+		Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+				R.drawable.iitmmap2004, options);
+		int imageHeight = options.outHeight;
+		int imageWidth = options.outWidth;
+		String imageType = options.outMimeType;
 
-		// Uri path = Uri.parse("android.resource://" +
-		// getActivity().getPackageName() + "/" + R.drawable.iitmmap2004);
-		Uri path2 = Uri.parse("file://" + "/sdcard/Dev/iitmmap2004.jpg");
-		Intent intent = new Intent();
-		intent.setAction(Intent.ACTION_DEFAULT);
-		intent.setDataAndType(path2, "image/*");
-		startActivity(intent);
-		return inflater.inflate(R.layout.iitmphysicalmap2004, container, false);
+		ImageView mImageView = (ImageView) view.findViewById(
+				R.id.iitmmap2004iv);
+		// mImageView.setImageBitmap(bitmap);
+
+		Bitmap bitmap2 = decodeSampledBitmapFromResource(getResources(),
+				R.drawable.iitmmap2004, 720, 1280);
+		if (mImageView == null)
+			Toast.makeText(inflater.getContext(), "You are in deep!",
+					Toast.LENGTH_SHORT).show();
+		else
+			mImageView.setImageBitmap(bitmap2);
+
+		// File file = new File("file://" + "/sdcard/NSS/", "iitmmap2004.jpg");
+		// FileOutputStream out = null;
+		// try {
+		// out = new FileOutputStream(file);
+		// } catch (FileNotFoundException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// }
+		// Bitmap bitmap =
+		// BitmapFactory.decodeResource(getResources(),R.drawable.iitmmap2004);
+		// bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+		// try {
+		// out.flush();
+		//
+		// out.close();} catch (IOException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+		//
+		// // Uri path = Uri.parse("android.resource://" +
+		// // getActivity().getPackageName() + "/" + R.drawable.iitmmap2004);
+		// Uri path2 = Uri.parse("file://" + "/sdcard/Dev/iitmmap2004.jpg");
+		// Intent intent = new Intent();
+		// intent.setAction(Intent.ACTION_DEFAULT);
+		// intent.setDataAndType(path2, "image/*");
+		// startActivity(intent);
+
+		return view;
 	}
 
 	public static int calculateInSampleSize(BitmapFactory.Options options,

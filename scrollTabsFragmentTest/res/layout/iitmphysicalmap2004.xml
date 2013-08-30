@@ -4,18 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-   <!--  <ImageView 
+     <ImageView 
         android:id="@+id/iitmmap2004iv"
-		android:src="@drawable/iitmmap2004"
+		
         android:layout_height="wrap_content"
     	android:layout_width="wrap_content"
+    	android:adjustViewBounds="true"
+    	android:scaleType="fitXY"
         android:contentDescription="Map of IITM as of 2004 (Use Google maps for a recent one)"
-        /> -->
-    <TextView
+        /> 
+   <!-- <TextView
         android:id="@+id/text1"
         android:layout_height="wrap_content"
     	android:layout_width="wrap_content"
         android:text="Map of IITM as of 2004 (Use Google maps for a recent one)"
-        />
+        />-->
     
 </LinearLayout>
