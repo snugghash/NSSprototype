@@ -16,6 +16,7 @@ import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -38,26 +39,36 @@ public class MapBMPFragment extends Fragment {
 		Toast.makeText(inflater.getContext(), "You are in physical maps!",
 				Toast.LENGTH_SHORT).show();
 
-		BitmapFactory.Options options = new BitmapFactory.Options();
-		options.inJustDecodeBounds = true;
-		Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
-				R.drawable.iitmmap2004, options);
-		int imageHeight = options.outHeight;
-		int imageWidth = options.outWidth;
-		String imageType = options.outMimeType;
+	//Implemented by getting a scaled version of the image
+//		BitmapFactory.Options options = new BitmapFactory.Options();
+//		options.inJustDecodeBounds = true;
+//		Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+//				R.drawable.iitmmap2004, options);
+//		int imageHeight = options.outHeight;
+//		int imageWidth = options.outWidth;
+//		String imageType = options.outMimeType;
+//
+//		ImageView mImageView = (ImageView) view.findViewById(
+//				R.id.iitmmap2004iv);
+//		// mImageView.setImageBitmap(bitmap);
+//
+//		Bitmap bitmap2 = decodeSampledBitmapFromResource(getResources(),
+//				R.drawable.iitmmap2004, 1080, 1920);
+//		if (mImageView == null)
+//			Toast.makeText(inflater.getContext(), "You are in deep!",
+//					Toast.LENGTH_SHORT).show();
+//		else
+//			mImageView.setImageBitmap(bitmap2);
+		
+	//Implemented by loading the image in WebView
+		String imageUrl = "file:///android_asset/iitmmap2004.jpg"; 
+		WebView wv = (WebView) view.findViewById(R.id.mywebview);
+		wv.getSettings().setBuiltInZoomControls(true);
+		wv.getSettings().setLoadWithOverviewMode(true);
+		wv.getSettings().setUseWideViewPort(true);
+		wv.loadUrl(imageUrl);
 
-		ImageView mImageView = (ImageView) view.findViewById(
-				R.id.iitmmap2004iv);
-		// mImageView.setImageBitmap(bitmap);
-
-		Bitmap bitmap2 = decodeSampledBitmapFromResource(getResources(),
-				R.drawable.iitmmap2004, 720, 1280);
-		if (mImageView == null)
-			Toast.makeText(inflater.getContext(), "You are in deep!",
-					Toast.LENGTH_SHORT).show();
-		else
-			mImageView.setImageBitmap(bitmap2);
-
+	//Attempt to copy the image to sdcard and read it using gallery
 		// File file = new File("file://" + "/sdcard/NSS/", "iitmmap2004.jpg");
 		// FileOutputStream out = null;
 		// try {

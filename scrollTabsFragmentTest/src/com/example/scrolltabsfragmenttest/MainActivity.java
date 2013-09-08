@@ -1,8 +1,5 @@
 package com.example.scrolltabsfragmenttest;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import java.util.Locale;
 
 import com.google.android.gms.maps.SupportMapFragment;
@@ -85,13 +82,17 @@ public class MainActivity extends FragmentActivity {
 			// below) with the page number as its lone argument.
 
 			switch (position) {
-			//case 3:
-			//	Fragment fragment3 = new com.example.scrolltabsfragmenttest.GMapTestFragment();
-			//	return fragment3;
+//			case 3:
+//				//Test of Google's map API
+//				Fragment fragment3 = new com.example.scrolltabsfragmenttest.GMapTestFragment();
+//				//TODO: Implement intuitive scrolling in this fragment.
+//				return fragment3;
 			case 4:
+				//Test of displaying an old jpeg image as a map
 				Fragment fragment4 = new com.example.scrolltabsfragmenttest.MapBMPFragment();
 				return fragment4;
 			default:
+				//Dummy
 				Fragment fragment = new DummySectionFragment();
 				Bundle args = new Bundle();
 				args.putInt(DummySectionFragment.ARG_SECTION_NUMBER,

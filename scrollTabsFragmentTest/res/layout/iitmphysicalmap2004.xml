@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-     <ImageView 
+    <WebView android:id="@+id/mywebview"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent" />
+     <!-- <ImageView 
         android:id="@+id/iitmmap2004iv"
 		
         android:layout_height="wrap_content"
@@ -12,7 +15,7 @@
     	android:adjustViewBounds="true"
     	android:scaleType="fitXY"
         android:contentDescription="Map of IITM as of 2004 (Use Google maps for a recent one)"
-        /> 
+        /> --> 
    <!-- <TextView
         android:id="@+id/text1"
         android:layout_height="wrap_content"
@@ -20,4 +23,4 @@
         android:text="Map of IITM as of 2004 (Use Google maps for a recent one)"
         />-->
     
-</LinearLayout>
+</RelativeLayout>

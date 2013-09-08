@@ -54,8 +54,8 @@ int drawable ic_launcher 0x7f020018
 int drawable iitmmap2004 0x7f020019
 int id action_settings 0x7f05000a
 int id hybrid 0x7f050004
-int id iitmmap2004iv 0x7f050008
 int id map 0x7f050009
+int id mywebview 0x7f050008
 int id none 0x7f050000
 int id normal 0x7f050001
 int id pager 0x7f050005
