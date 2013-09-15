@@ -60,7 +60,7 @@ public class MapBMPFragment extends Fragment {
 //		else
 //			mImageView.setImageBitmap(bitmap2);
 		
-	//Implemented by loading the image in WebView
+	//Implemented by loading the image in WebView. Works well.
 		String imageUrl = "file:///android_asset/iitmmap2004.jpg"; 
 		WebView wv = (WebView) view.findViewById(R.id.mywebview);
 		wv.getSettings().setBuiltInZoomControls(true);
