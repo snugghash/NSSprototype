@@ -34,7 +34,8 @@ public class MainActivity extends Activity {
 		//Retrieve phone numbers from shared preferences.
 		SharedPreferences preferences = PreferenceManager
 				.getDefaultSharedPreferences(getBaseContext());
-		phoneNoString = preferences.getString("phoneNoString", "324567 2345675 442134567 32234567 254654 4325 6543 5554 345645 432 5654 3324564 324567 5556");
+		phoneNoString = preferences.getString("phoneNoString", "5554 5556");
+		Log.v("debug1", phoneNoString);
 		phoneNoArray = phoneNoString.split(" ");
 		// Set phone numbers to phone number field
 		String phoneNoDisplayStr = "";
@@ -55,15 +56,17 @@ public class MainActivity extends Activity {
 						.getDefaultSharedPreferences(getBaseContext());
 				Editor editor = preferences.edit();
 				EditText phoneNos = (EditText) findViewById(R.id.editText1);
-
+				if(phoneNos==null)Log.v("troll", "troll");
+				
 				// Gets the phone numbers in the EditText and checks for already existing, adds to list if not existing
 				String[] phoneNumbers = phoneNos.getText().toString()
 						.split(" ");
-				boolean flag = true;
 				for (int i = 0; i < phoneNumbers.length; i++) {
+					boolean flag = true;
 					for (int j = 0; j < phoneNoArray.length; j++) {
 						if (phoneNumbers[i]
-								.compareToIgnoreCase(phoneNoArray[j]) == 0) {
+								.compareTo(phoneNoArray[j]) == 0) {
+							//Log.v("addComp","same");
 							flag = false;
 						}
 					}
@@ -73,7 +76,7 @@ public class MainActivity extends Activity {
 				}
 				editor.putString("phoneNoString", phoneNoString);
 				editor.commit();
-				
+				Log.v("debugAdd", phoneNoString);
 				Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -90,8 +93,8 @@ public class MainActivity extends Activity {
 				String[] phoneNumbers = phoneNos.getText().toString()
 						.split(" ");
 				phoneNoString = "";
-				boolean flag = true;
 				for (int i = 0; i < phoneNoArray.length; i++) {
+					boolean flag = true;
 					for (int j = 0; j < phoneNumbers.length; j++) {
 						if (phoneNumbers[j]
 								.compareToIgnoreCase(phoneNoArray[i]) == 0) {
@@ -102,14 +105,14 @@ public class MainActivity extends Activity {
 						phoneNoString += phoneNoArray[i] + ' ';
 					}
 				}
-				Log.v("debug", phoneNoString);
+				Log.v("debugRem", phoneNoString);
 				editor.putString("phoneNoString", phoneNoString);
 				editor.commit();
 				
 				Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
 				
 				//Retrieve phone numbers from shared preferences.
-				phoneNoString = preferences.getString("phoneNoString", "324567 2345675 442134567 32234567 254654 4325 6543 5554 345645 432 5654 3324564 324567 5556");
+				phoneNoString = preferences.getString("phoneNoString", "5554 5556");
 				phoneNoArray = phoneNoString.split(" ");
 				// Set phone numbers to phone number field
 				String phoneNoDisplayStr = "";
@@ -171,9 +174,13 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
+	protected void onResume(Bundle savedInstancestate) {
+		super.onResume();
+	}
 }
