@@ -38,16 +38,6 @@
         android:inputType="textMultiLine" >
     </EditText>
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="59dp"
-        android:ems="10"
-        android:inputType="phone" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -56,5 +46,38 @@
         android:layout_alignLeft="@+id/editText1"
         android:layout_marginBottom="24dp"
         android:text="Enter the message" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:inputType="phone" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/remNums"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_toRightOf="@+id/textView2"
+        android:text="Remove numbers" />
+
+    <Button
+        android:id="@+id/saveNums"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/remNums"
+        android:layout_alignBottom="@+id/remNums"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_marginRight="28dp"
+        android:text="Save numbers" />
 
 </RelativeLayout>
