@@ -72,4 +72,14 @@
         android:layout_toRightOf="@+id/textView2"
         android:text="Remove numbers" />
 
+    <Button
+        android:id="@+id/select"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:text="Select a input file" 
+        android:onClick="select" />
+
 </RelativeLayout>
