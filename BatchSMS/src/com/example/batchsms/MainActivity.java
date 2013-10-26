@@ -12,11 +12,13 @@ import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,9 +32,11 @@ public class MainActivity extends Activity {
 	int NO_BATCH = 10;
 	public String TAG = "Debug";
 	public String EXT = ".txt";
+	//Path to file
 	public File mPath;
 	public FileDialog fileDialog;
 	public String fileString = null;
+	//File dialogue yes/no
 	public int ynflag = 0;
 
 	@Override
@@ -189,7 +193,6 @@ public class MainActivity extends Activity {
 	}
 
 	DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-
 		@Override
 		public void onClick(DialogInterface dialog, int which) {
 			switch (which) {
@@ -210,11 +213,22 @@ public class MainActivity extends Activity {
 		}
 	};
 
+	/**
+	 * Sends SMS to the argument in the background
+	 * @param phoneNumber to send to.
+	 * @param message to send.
+	 */
 	private void sendSMS(String phoneNumber, String message) {
 		SmsManager sms = SmsManager.getDefault();
 		sms.sendTextMessage(phoneNumber, null, message, null, null);
 	}
 
+	/**
+	 * Converts stream to String type
+	 * @param is The input stream.
+	 * @return Converted input in String type. 
+	 * @throws Exception on bad input
+	 */
 	public static String convertStreamToString(InputStream is) throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 		StringBuilder sb = new StringBuilder();
@@ -253,7 +267,6 @@ public class MainActivity extends Activity {
 	public void setPhoneNos(String phoneNoString, int pos) {
 
 		position = pos;
-
 		phoneNoArray = phoneNoString.split(" ");
 		String phoneNoDisplayStr = "";
 		for (int i=0; i< NO_BATCH; i++) {
@@ -290,6 +303,11 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	public void setSettingsFragment(MenuItem menuItem) {
+		Intent settings = new Intent(getApplicationContext(),com.example.batchsms.SettingsActivity.class);
+		startActivity(settings);
 	}
 
 	protected void onResume(Bundle savedInstancestate) {
