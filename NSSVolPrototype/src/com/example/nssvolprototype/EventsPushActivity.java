@@ -12,6 +12,10 @@ public class EventsPushActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_events_push);
 		
+		//TODO register for event
+		//TODO Cancel registration
+		//TODO Description of event
+		
 		Toast.makeText(getApplicationContext(), "You're in events!", Toast.LENGTH_SHORT).show();
 	}
 

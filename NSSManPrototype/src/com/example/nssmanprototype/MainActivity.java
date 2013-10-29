@@ -64,7 +64,6 @@ public class MainActivity extends FragmentActivity {
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
 		private static final int FRAGMENT_COUNT = 4;
-		private FragmentManager mFM;
 
 		public SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
@@ -73,13 +72,16 @@ public class MainActivity extends FragmentActivity {
 		@Override
 		public Fragment getItem(int position) {
 			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
-			// below) with the page number as its lone argument.
+			
 
 			switch (position) {
+			//TODO implement all managerial functions
 			case 0:
 				Fragment fragment0 = new com.example.nssmanprototype.SendPushFragment();
 				return fragment0;
+				
+				// Return a DummySectionFragment (defined as a static inner class
+				// below) with the page number as its lone argument.
 			default:
 				//Dummy default implementation
 				Fragment fragment = new DummySectionFragment();
@@ -94,7 +96,7 @@ public class MainActivity extends FragmentActivity {
 		@Override
 		public int getCount() {
 			// Show 3 total pages.
-			return 3;
+			return FRAGMENT_COUNT;
 		}
 
 		@Override

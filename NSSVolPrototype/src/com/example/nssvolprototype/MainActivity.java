@@ -68,6 +68,9 @@ public class MainActivity extends FragmentActivity {
 	 */
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+		//Number of fragments
+		int FRAGMENT_COUNT=4;
+		
 		public SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
 		}
@@ -78,6 +81,9 @@ public class MainActivity extends FragmentActivity {
 
 			switch (position) {
 			//TODO implement all volunteer features
+			case 3:
+				Fragment fragment0 = new com.example.nssvolprototype.SubscribeFragment();
+				return fragment0;
 			default:
 				// Return a DummySectionFragment (defined as a static inner
 				// class
@@ -94,7 +100,7 @@ public class MainActivity extends FragmentActivity {
 		@Override
 		public int getCount() {
 			// Show 3 total pages.
-			return 3;
+			return FRAGMENT_COUNT;
 		}
 
 		@Override

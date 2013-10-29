@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 /** 
+ * Fragment to display UI to send push notifications to various channels of volunteers
  * @author killjoy
  * 29-09-3013
  */
