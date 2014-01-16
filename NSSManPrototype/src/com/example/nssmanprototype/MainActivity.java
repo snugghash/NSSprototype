@@ -73,18 +73,23 @@ public class MainActivity extends FragmentActivity {
 		public Fragment getItem(int position) {
 			// getItem is called to instantiate the fragment for the given page.
 			
-
+			Fragment fragment;
+			
 			switch (position) {
 			//TODO implement all managerial functions
 			case 0:
-				Fragment fragment0 = new com.example.nssmanprototype.SendPushFragment();
-				return fragment0;
+				fragment = new com.example.nssmanprototype.SendPushFragment();
+				return fragment;
+				
+			case 1:
+				fragment = new BatchSmsFragment();
+				return fragment;
 				
 				// Return a DummySectionFragment (defined as a static inner class
 				// below) with the page number as its lone argument.
 			default:
 				//Dummy default implementation
-				Fragment fragment = new DummySectionFragment();
+				fragment = new DummySectionFragment();
 				Bundle args = new Bundle();
 				args.putInt(DummySectionFragment.ARG_SECTION_NUMBER,
 						position + 1);
